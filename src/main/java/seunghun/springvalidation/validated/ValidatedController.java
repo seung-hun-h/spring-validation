@@ -86,12 +86,12 @@ public class ValidatedController {
 	}
 
 	@ExceptionHandler(HandlerMethodValidationException.class)
-	public ResponseEntity<String> handleMethodArgumentTypeMismatchException(HandlerMethodValidationException exception) {
+	public ResponseEntity<String> handleHandlerMethodValidationException(HandlerMethodValidationException exception) {
 		return ResponseEntity.badRequest().body("HandlerMethodValidationException: " + exception.getMessage());
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<String> handleMissingServletRequestParameterException(MethodArgumentNotValidException exception) {
+	public ResponseEntity<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
 		return ResponseEntity.badRequest().body("MethodArgumentNotValidException: " + exception.getMessage());
 	}
 

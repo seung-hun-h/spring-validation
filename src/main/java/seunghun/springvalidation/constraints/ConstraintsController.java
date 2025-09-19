@@ -1,6 +1,5 @@
 package seunghun.springvalidation.constraints;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
@@ -82,7 +81,7 @@ public class ConstraintsController {
 	}
 
 	@ExceptionHandler(HandlerMethodValidationException.class)
-	public ResponseEntity<String> handleMethodArgumentTypeMismatchException(HandlerMethodValidationException exception) {
+	public ResponseEntity<String> handleHandlerMethodValidationException(HandlerMethodValidationException exception) {
 		return ResponseEntity.badRequest().body("HandlerMethodValidationException: " + exception.getMessage());
 	}
 
@@ -92,7 +91,7 @@ public class ConstraintsController {
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<String> handleMissingServletRequestParameterException(MethodArgumentNotValidException exception) {
+	public ResponseEntity<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
 		return ResponseEntity.badRequest().body("MethodArgumentNotValidException: " + exception.getMessage());
 	}
 

@@ -135,7 +135,7 @@ class ConstraintsControllerTest {
 
 	@Test
 	void pathVariableModel() throws Exception {
-		mockMvc.perform(get("/constraints/model/path-variable/{userId}/{age}", "seunghun", "10"))
+		mockMvc.perform(get("/constraints/model/path-variable/{name}/{age}", "seunghun", "10"))
 			.andExpect(status().isOk())
 			.andExpect(content().string("Hello seunghun, your age is 10"));
 	}
@@ -143,20 +143,20 @@ class ConstraintsControllerTest {
 	// 컨트롤러까지 도달하지 못함
 	@Test
 	void pathVariableModelWithoutAge() throws Exception {
-		mockMvc.perform(get("/constraints/model/path-variable/{userId}", "seunghun"))
+		mockMvc.perform(get("/constraints/model/path-variable/{name}", "seunghun"))
 			.andExpect(status().isNotFound());
 	}
 
 	@Test
 	void pathVariableModelWrongType() throws Exception {
-		mockMvc.perform(get("/constraints/model/path-variable/{userId}/{age}", "seunghun", "abc"))
+		mockMvc.perform(get("/constraints/model/path-variable/{name}/{age}", "seunghun", "abc"))
 			.andExpect(status().isBadRequest())
 			.andExpect(content().string(containsString("MethodArgumentNotValidException")));
 	}
 
 	@Test
 	void pathVariableModelInvalid() throws Exception { // 유효성 검증 안됨
-		mockMvc.perform(get("/constraints/model/path-variable/{userId}/{age}", "seunghun", "-1"))
+		mockMvc.perform(get("/constraints/model/path-variable/{name}/{age}", "seunghun", "-1"))
 			.andExpect(status().isOk());
 	}
 }

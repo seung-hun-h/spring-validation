@@ -1,4 +1,4 @@
-package seunghun.springvalidation.constraints;
+package seunghun.springvalidation.valid;
 
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -10,10 +10,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import seunghun.springvalidation.valid.ContentDto;
-import seunghun.springvalidation.valid.UserDto;
-import seunghun.springvalidation.valid.ValidController;
 
 @WebMvcTest(ValidController.class)
 class ValidControllerTest {
@@ -110,7 +106,7 @@ class ValidControllerTest {
 
 	@Test
 	void pathVariable() throws Exception {
-		mockMvc.perform(get("/valid/path-variable/{userId}/{age}", "seunghun", "10"))
+		mockMvc.perform(get("/valid/path-variable/{name}/{age}", "seunghun", "10"))
 			.andExpect(status().isOk())
 			.andExpect(content().string("Hello seunghun, your age is 10"));
 	}
@@ -118,27 +114,27 @@ class ValidControllerTest {
 	// 컨트롤러까지 도달하지 못함
 	@Test
 	void pathVariableWithoutAge() throws Exception {
-		mockMvc.perform(get("/valid/path-variable/{userId}", "seunghun"))
+		mockMvc.perform(get("/valid/path-variable/{name}", "seunghun"))
 			.andExpect(status().isNotFound());
 	}
 
 	@Test
 	void pathVariableWrongType() throws Exception {
-		mockMvc.perform(get("/valid/path-variable/{userId}/{age}", "seunghun", "abc"))
+		mockMvc.perform(get("/valid/path-variable/{name}/{age}", "seunghun", "abc"))
 			.andExpect(status().isBadRequest())
 			.andExpect(content().string(containsString("MethodArgumentTypeMismatchException")));
 	}
 
 	@Test
 	void pathVariableInvalid() throws Exception {
-		mockMvc.perform(get("/valid/path-variable/{userId}/{age}", "seunghun", "-1"))
+		mockMvc.perform(get("/valid/path-variable/{name}/{age}", "seunghun", "-1"))
 			.andExpect(status().isBadRequest())
 			.andExpect(content().string(containsString("HandlerMethodValidationException")));
 	}
 
 	@Test
 	void pathVariableModel() throws Exception {
-		mockMvc.perform(get("/valid/model/path-variable/{userId}/{age}", "seunghun", "10"))
+		mockMvc.perform(get("/valid/model/path-variable/{name}/{age}", "seunghun", "10"))
 			.andExpect(status().isOk())
 			.andExpect(content().string("Hello seunghun, your age is 10"));
 	}
@@ -146,20 +142,20 @@ class ValidControllerTest {
 	// 컨트롤러까지 도달하지 못함
 	@Test
 	void pathVariableModelWithoutAge() throws Exception {
-		mockMvc.perform(get("/valid/model/path-variable/{userId}", "seunghun"))
+		mockMvc.perform(get("/valid/model/path-variable/{name}", "seunghun"))
 			.andExpect(status().isNotFound());
 	}
 
 	@Test
 	void pathVariableModelWrongType() throws Exception {
-		mockMvc.perform(get("/valid/model/path-variable/{userId}/{age}", "seunghun", "abc"))
+		mockMvc.perform(get("/valid/model/path-variable/{name}/{age}", "seunghun", "abc"))
 			.andExpect(status().isBadRequest())
 			.andExpect(content().string(containsString("MethodArgumentNotValidException")));
 	}
 
 	@Test
 	void pathVariableModelInvalid() throws Exception {
-		mockMvc.perform(get("/valid/model/path-variable/{userId}/{age}", "seunghun", "-1"))
+		mockMvc.perform(get("/valid/model/path-variable/{name}/{age}", "seunghun", "-1"))
 			.andExpect(status().isBadRequest())
 			.andExpect(content().string(containsString("MethodArgumentNotValidException")));
 	}

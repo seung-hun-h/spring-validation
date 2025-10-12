@@ -11,8 +11,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import seunghun.springvalidation.valid.ContentDto;
-import seunghun.springvalidation.valid.UserDto;
+import seunghun.springvalidation.validation.constraints.ConstraintsController;
+import seunghun.springvalidation.validation.valid.ContentDto;
+import seunghun.springvalidation.validation.valid.UserDto;
 
 @WebMvcTest(ConstraintsController.class)
 class ConstraintsControllerTest {

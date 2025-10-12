@@ -11,8 +11,9 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import seunghun.springvalidation.valid.ContentDto;
-import seunghun.springvalidation.valid.UserDto;
+import seunghun.springvalidation.validation.valid.ContentDto;
+import seunghun.springvalidation.validation.valid.UserDto;
+import seunghun.springvalidation.validation.validated.ValidatedController;
 
 @WebMvcTest(ValidatedController.class)
 class ValidatedControllerTest {
@@ -97,7 +98,7 @@ class ValidatedControllerTest {
 	void requestBodyContentWithoutAge() throws Exception { // 유효성 검증 안됨
 		ContentDto contentDto = new ContentDto(
 			new UserDto("", -1),
-			"content"
+			null
 		);
 
 		mockMvc.perform(post("/validated/request-body")

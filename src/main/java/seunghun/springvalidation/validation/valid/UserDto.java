@@ -1,4 +1,4 @@
-package seunghun.springvalidation.valid;
+package seunghun.springvalidation.validation.valid;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

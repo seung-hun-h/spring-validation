@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import seunghun.springvalidation.validation.valid.ValidController;
+
 /**
  * PathVariable 모델 바인딩 동작 확인 테스트
  */

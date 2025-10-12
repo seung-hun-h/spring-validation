@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import seunghun.springvalidation.validation.other.OtherController;
+
 /**
  * Spring 예외 발생 시나리오 테스트
  */

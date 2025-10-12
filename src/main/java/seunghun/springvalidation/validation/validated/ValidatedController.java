@@ -1,4 +1,4 @@
-package seunghun.springvalidation.validated;
+package seunghun.springvalidation.validation.validated;
 
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.constraints.Min;
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-import seunghun.springvalidation.valid.ContentDto;
-import seunghun.springvalidation.valid.UserDto;
+import seunghun.springvalidation.validation.valid.ContentDto;
+import seunghun.springvalidation.validation.valid.UserDto;
 
 @RestController
 @RequestMapping("/validated")

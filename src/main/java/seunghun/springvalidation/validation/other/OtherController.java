@@ -1,4 +1,4 @@
-package seunghun.springvalidation.other;
+package seunghun.springvalidation.validation.other;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 
-import seunghun.springvalidation.valid.UserDto;
+import seunghun.springvalidation.validation.valid.UserDto;
 
 @RestController
 @RequestMapping("/other")

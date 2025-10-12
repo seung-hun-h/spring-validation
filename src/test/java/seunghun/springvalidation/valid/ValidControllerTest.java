@@ -11,6 +11,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import seunghun.springvalidation.validation.valid.ContentDto;
+import seunghun.springvalidation.validation.valid.UserDto;
+import seunghun.springvalidation.validation.valid.ValidController;
+
 @WebMvcTest(ValidController.class)
 class ValidControllerTest {
 	@Autowired

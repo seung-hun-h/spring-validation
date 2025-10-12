@@ -1,0 +1,62 @@
+### hello world
+http://localhost:8080/handle/api/test/hello
+
+### single param
+http://localhost:8080/handle/api/test/single-param?age=10
+
+### single param invalid
+http://localhost:8080/handle/api/test/single-param?age=1
+
+### multiple param invalid
+http://localhost:8080/handle/api/test/multiple-param?page=0&size=0&keyword=
+
+### request body invalid
+POST http://localhost:8080/handle/api/test/request-body
+Content-Type: application/json
+
+{
+	"name": "  ",
+    "age": null
+}
+
+### content invalid
+POST http://localhost:8080/handle/api/test/nested
+Content-Type: application/json
+
+{
+	"user": {
+		"name": "",
+		"age": 5
+	},
+	"content": ""
+}
+
+### group invalid
+POST http://localhost:8080/handle/api/test/nested-list
+Content-Type: application/json
+
+{
+	"users": [{
+		"name": "",
+		"age": 5
+	},{
+		"name": "함승훈",
+		"age": 1
+	}],
+	"name": ""
+}
+
+### user list invalid
+POST http://localhost:8080/handle/api/test/users-list
+Content-Type: application/json
+
+[
+  {
+    "name": "",
+    "age": 5
+  },
+  {
+    "name": "",
+    "age": 20
+  }
+]
